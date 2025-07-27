@@ -9,6 +9,13 @@ namespace RimForge.Achievements
         public float minDamage;
         public HashSet<CoilgunShellDef> exceptShells;
 
+        private string _key = nameof(CoilgunDamageTracker);
+        public override string Key
+        {
+            get => _key;
+            set => _key = value;
+        }
+
         public CoilgunDamageTracker() {}
 
         public CoilgunDamageTracker(CoilgunDamageTracker other)
@@ -17,12 +24,14 @@ namespace RimForge.Achievements
             this.minDamage = other.minDamage;
             this.minKills = other.minKills;
             this.exceptShells = other.exceptShells;
+            this._key = other._key;
         }
 
         public override void ExposeData()
         {
             base.ExposeData();
 
+            Scribe_Values.Look(ref _key, "key");
             Scribe_Values.Look(ref minDamage, "minDamage");
             Scribe_Values.Look(ref minKills, "minKills");
             Scribe_Collections.Look(ref exceptShells, "exceptShells", LookMode.Def);

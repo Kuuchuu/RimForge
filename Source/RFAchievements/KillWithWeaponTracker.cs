@@ -4,7 +4,14 @@ using Verse;
 namespace RimForge.Achievements
 {
     public class KillWithWeaponTracker : KillTracker
-	{
+    {
+        private string _key = nameof(KillWithWeaponTracker);
+        public override string Key
+        {
+            get => _key;
+            set => _key = value;
+        }
+
         public ThingDef weaponDef;
 
         public KillWithWeaponTracker(){}
@@ -13,13 +20,15 @@ namespace RimForge.Achievements
             :base(reference)
         {
             this.weaponDef = reference.weaponDef;
+            this._key = reference._key;
         }
 
         public override void ExposeData()
         {
-            Scribe_Defs.Look(ref weaponDef, "weaponDef");
-
             base.ExposeData();
+
+            Scribe_Defs.Look(ref weaponDef, "weaponDef");
+            Scribe_Values.Look(ref _key, "key");
         }
 
         public override bool Trigger(Pawn pawn, DamageInfo? dinfo)

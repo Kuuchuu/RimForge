@@ -8,6 +8,13 @@ namespace RimForge.Achievements
 {
     public class ItemCraftMultiple : ItemCraftTracker
     {
+        private string _key = nameof(ItemCraftMultiple);
+        public override string Key
+        {
+            get => _key;
+            set => _key = value;
+        }
+
         public List<ThingDef> toCraft = new List<ThingDef>();
 
         private List<int> crafted = new List<int>();
@@ -76,6 +83,7 @@ namespace RimForge.Achievements
 
             Scribe_Collections.Look(ref toCraft, "toCraft", LookMode.Def);
             Scribe_Collections.Look(ref crafted, "crafted", LookMode.Value);
+            Scribe_Values.Look(ref _key, "key");
             toCraft ??= new List<ThingDef>();
             crafted ??= new List<int>();
 

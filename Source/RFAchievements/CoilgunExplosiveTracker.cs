@@ -5,7 +5,13 @@ namespace RimForge.Achievements
 {
     public class CoilgunExplosiveTracker : Tracker2<Explosion, int>
     {
-        public override string Key => nameof(CoilgunExplosiveTracker);
+        private string _key = nameof(CoilgunExplosiveTracker);
+        public override string Key
+        {
+            get => _key;
+            set => _key = value;
+        }
+
         protected override string[] DebugText => new string[] {nameof(CoilgunExplosiveTracker) };
 
         public int minKills;
@@ -16,12 +22,14 @@ namespace RimForge.Achievements
             :base(other)
         {
             this.minKills = other.minKills;
+            this._key = other._key;
         }
 
         public override void ExposeData()
         {
             base.ExposeData();
 
+            Scribe_Values.Look(ref _key, "key");
             Scribe_Values.Look(ref minKills, "minKills");
         }
 

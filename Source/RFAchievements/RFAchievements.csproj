@@ -13,14 +13,22 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="AchievementsExpanded" Version="1.4.82" />
+		<Reference Include="VanillaAchievments">
+			<HintPath Condition="Exists('C:/Program Files (x86)/Steam/steamapps/common/RimWorld/Mods/VanillaAchievementsExpanded/1.6/Assemblies/AchievementsExpanded.dll')">C:/Program Files (x86)/Steam/steamapps/common/RimWorld/Mods/VanillaAchievementsExpanded/1.6/Assemblies/AchievementsExpanded.dll</HintPath>
+			<HintPath Condition="Exists('C:/Program Files (x86)/Steam/steamapps/workshop/content/294100/2288125657/1.6/Assemblies/AchievementsExpanded.dll')">C:/Program Files (x86)/Steam/steamapps/workshop/content/294100/2288125657/1.6/Assemblies/AchievementsExpanded.dll</HintPath>
+			<HintPath Condition="Exists('C:/Program Files/Steam/steamapps/common/RimWorld/Mods/VanillaAchievementsExpanded/1.6/Assemblies/AchievementsExpanded.dll')">C:/Program Files/Steam/steamapps/common/RimWorld/Mods/VanillaAchievementsExpanded/1.6/Assemblies/AchievementsExpanded.dll</HintPath>
+			<HintPath Condition="Exists('C:/Program Files/Steam/steamapps/workshop/content/294100/2288125657/1.6/Assemblies/AchievementsExpanded.dll')">C:/Program Files/Steam/steamapps/workshop/content/294100/2288125657/1.6/Assemblies/AchievementsExpanded.dll</HintPath>
+			<HintPath Condition="Exists('$(RIMWORLD_BASE_PATH)/Mods/VanillaAchievementsExpanded/1.6/Assemblies/AchievementsExpanded.dll')">$(RIMWORLD_BASE_PATH)/Mods/VanillaAchievementsExpanded/1.6/Assemblies/AchievementsExpanded.dll</HintPath>
+			<HintPath Condition="Exists('$(RIMWORLD_BASE_PATH)/../../workshop/content/294100/2288125657/1.6/Assemblies/AchievementsExpanded.dll')">$(RIMWORLD_BASE_PATH)/../../workshop/content/294100/2288125657/1.6/Assemblies/AchievementsExpanded.dll</HintPath>
+			<Private>True</Private>
+		</Reference>
 		<PackageReference Include="Lib.Harmony" Version="2.3.6" ExcludeAssets="runtime" />
 		<ProjectReference Include="..\RimForge\RimForge.csproj">
 			<CopyLocal>false</CopyLocal>
 			<Private>false</Private>
 			<ExcludeAssets>runtime</ExcludeAssets>
 		</ProjectReference>
-    <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.4494-beta" />
+    <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.4528" />
   </ItemGroup>    
   
 	<!-- Output -->

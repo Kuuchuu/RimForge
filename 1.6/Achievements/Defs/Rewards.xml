@@ -1,0 +1,11 @@
+<Defs>
+
+  <RimForge.Achievements.Rewards.Reward_GainFavor>
+		<defName>RF_ACR_GainFavor</defName>
+		<label>Gain favor with Machine God Zir</label>
+    <description>Decreases chance of blessing ritual failure.</description>
+		<tab>RF_AC_Tab</tab>
+		<cost>60</cost>
+	</RimForge.Achievements.Rewards.Reward_GainFavor>
+
+</Defs>

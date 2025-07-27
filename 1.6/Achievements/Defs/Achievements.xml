@@ -1,0 +1,355 @@
+<Defs>
+
+  <AchievementsExpanded.AchievementTabDef>
+    <defName>RF_AC_Tab</defName>
+    <label>RimForge</label>
+    <!-- <sorted>true</sorted> -->
+  </AchievementsExpanded.AchievementTabDef>
+
+  <!-- Virtuous Treaty -->
+  <AchievementsExpanded.AchievementDef>
+    <defName>RF_AC_CraftTreaty</defName>
+    <label>Vague Hope (Cold Rain)</label>
+    <description>Craft a Virtuous Treaty of normal quality or higher.</description>
+    <texPath>RF/AC/Treaty1</texPath>
+    <tracker Class="AchievementsExpanded.ItemCraftTracker">
+      <def>RF_VirtuousTreaty</def>
+      <count>1</count>
+      <quality>Normal</quality>
+    </tracker>
+    <points>5</points>
+    <tab>RF_AC_Tab</tab>
+    <!-- <order>0.5</order> -->
+  </AchievementsExpanded.AchievementDef>
+
+  <AchievementsExpanded.AchievementDef>
+    <defName>RF_AC_TreatyFirstKill</defName>
+    <label>Voice of no Return</label>
+    <description>Have a colonist kill a human using a Virtuous Treaty.</description>
+    <texPath>RF/AC/Treaty2</texPath>
+    <tracker Class="RimForge.Achievements.KillWithWeaponTracker">
+      <weaponDef>RF_VirtuousTreaty</weaponDef>
+      <raceDef>Human</raceDef>
+      <instigatorFactionDefs>
+        <li>PlayerColony</li>
+				<li>PlayerTribe</li>
+      </instigatorFactionDefs>
+      <count>1</count>
+    </tracker>
+    <points>2</points>
+    <tab>RF_AC_Tab</tab>
+    <!-- <order>1</order> -->
+  </AchievementsExpanded.AchievementDef>
+
+  <AchievementsExpanded.AchievementDef>
+    <defName>RF_AC_TreatyManyKills</defName>
+    <label>Wretched Weaponry</label>
+    <description>Kill 50 humans using a Virtuous Treaty.</description>
+    <texPath>RF/AC/Treaty3</texPath>
+    <tracker Class="RimForge.Achievements.KillWithWeaponTracker">
+      <weaponDef>RF_VirtuousTreaty</weaponDef>
+      <raceDef>Human</raceDef>
+      <instigatorFactionDefs>
+        <li>PlayerColony</li>
+				<li>PlayerTribe</li>
+      </instigatorFactionDefs>
+      <count>50</count>
+    </tracker>
+    <points>25</points>
+    <tab>RF_AC_Tab</tab>
+    <!-- <order>2</order> -->
+  </AchievementsExpanded.AchievementDef>
+
+  <!-- Gae Bulg -->
+  <AchievementsExpanded.AchievementDef>
+    <defName>RF_AC_CraftGae</defName>
+    <label>Hard To Pronounce</label>
+    <description>Craft a gáe bulg of normal quality or higher.</description>
+    <texPath>RF/AC/Gae1</texPath>
+    <tracker Class="AchievementsExpanded.ItemCraftTracker">
+      <def>RF_GaeBulg</def>
+      <count>1</count>
+      <quality>Normal</quality>
+    </tracker>
+    <points>5</points>
+    <tab>RF_AC_Tab</tab>
+    <!-- <order>3</order> -->
+  </AchievementsExpanded.AchievementDef>
+
+  <AchievementsExpanded.AchievementDef>
+    <defName>RF_AC_GaeFirstKill</defName>
+    <label>Lethal Lancer</label>
+    <description>Have a colonist kill a human using a gáe bulg.</description>
+    <texPath>RF/AC/Gae2</texPath>
+    <tracker Class="RimForge.Achievements.KillWithWeaponTracker">
+      <weaponDef>RF_GaeBulg</weaponDef>
+      <raceDef>Human</raceDef>
+      <instigatorFactionDefs>
+        <li>PlayerColony</li>
+				<li>PlayerTribe</li>
+      </instigatorFactionDefs>
+      <count>1</count>
+    </tracker>
+    <points>2</points>
+    <tab>RF_AC_Tab</tab>
+    <!-- <order>4</order> -->
+  </AchievementsExpanded.AchievementDef>
+
+  <AchievementsExpanded.AchievementDef>
+    <defName>RF_AC_GaeManyKills</defName>
+    <label>Pole Dancer</label>
+    <description>Kill 50 humans using a gáe bulg.</description>
+    <texPath>RF/AC/Gae3</texPath>
+    <tracker Class="RimForge.Achievements.KillWithWeaponTracker">
+      <weaponDef>RF_GaeBulg</weaponDef>
+      <raceDef>Human</raceDef>
+      <instigatorFactionDefs>
+        <li>PlayerColony</li>
+				<li>PlayerTribe</li>
+      </instigatorFactionDefs>
+      <count>50</count>
+    </tracker>
+    <points>25</points>
+    <tab>RF_AC_Tab</tab>
+    <!-- <order>5</order> -->
+  </AchievementsExpanded.AchievementDef>
+
+  <!-- Coilgun -->
+  <AchievementsExpanded.AchievementDef>
+    <defName>RF_AC_BuildCoilgun</defName>
+    <label>Might Be Overkill</label>
+    <description>Build a Liandry Coilgun.</description>
+    <texPath>RF/AC/Coilgun</texPath>
+    <tracker Class="AchievementsExpanded.BuildingTracker">
+      <def>RF_Coilgun</def>
+      <count>1</count>
+    </tracker>
+    <points>15</points>
+    <tab>RF_AC_Tab</tab>
+    <!-- <order>8</order> -->
+  </AchievementsExpanded.AchievementDef>
+
+  <AchievementsExpanded.AchievementDef>
+    <defName>RF_AC_CoilgunFarPen</defName>
+    <label>Wallbang</label>
+    <description>Kill a pawn with the Coilgun after shooting through 20 solid tiles.</description>
+    <texPath>RF/AC/ShellAP</texPath>
+    <tracker Class="RimForge.Achievements.CoilgunDepthTracker">
+      <minDepth>20</minDepth>
+    </tracker>
+    <points>5</points>
+    <tab>RF_AC_Tab</tab>
+    <!-- <order>9</order> -->
+  </AchievementsExpanded.AchievementDef>
+
+  <AchievementsExpanded.AchievementDef>
+    <defName>RF_AC_CoilgunMultikill</defName>
+    <label>Can't Stop Won't Stop</label>
+    <description>Kill 5 pawns with a single AP or SP Coilgun shell.</description>
+    <texPath>RF/AC/ShellSP</texPath>
+    <tracker Class="RimForge.Achievements.CoilgunMultikillTracker">
+      <minKills>5</minKills>
+      <exceptShell>RF_CoilgunShellHE</exceptShell>
+    </tracker>
+    <points>5</points>
+    <tab>RF_AC_Tab</tab>
+    <!-- <order>10</order> -->
+  </AchievementsExpanded.AchievementDef>
+
+  <AchievementsExpanded.AchievementDef>
+    <defName>RF_AC_CoilgunExplosion</defName>
+    <label>Blown Away</label>
+    <description>Kill 10 pawns with a single HE Coilgun shell.</description>
+    <texPath>RF/AC/ShellHE</texPath>
+    <tracker Class="RimForge.Achievements.CoilgunExplosiveTracker">
+      <minKills>10</minKills>
+    </tracker>
+    <points>10</points>
+    <tab>RF_AC_Tab</tab>
+    <!-- <order>11</order> -->
+  </AchievementsExpanded.AchievementDef>
+
+  <AchievementsExpanded.AchievementDef>
+    <defName>RF_AC_CoilgunHighDamage</defName>
+    <label>Over... 5000?</label>
+    <description>Kill at least 1 pawn and deal a total of over 5000 damage with a single Coilgun shot.</description>
+    <texPath>RF/AC/Shell5K</texPath>
+    <tracker Class="RimForge.Achievements.CoilgunDamageTracker">
+      <minKills>1</minKills>
+      <minDamage>5000.01</minDamage>
+    </tracker>
+    <points>5</points>
+    <tab>RF_AC_Tab</tab>
+    <!-- <order>12</order> -->
+  </AchievementsExpanded.AchievementDef>
+
+  <AchievementsExpanded.AchievementDef>
+    <defName>RF_AC_CoilgunMany</defName>
+    <label>Never Saw It Coming</label>
+    <description>Kill 200 pawns with the Liandry Coilgun.</description>
+    <texPath>RF/AC/CoilgunMany</texPath>
+    <tracker Class="RimForge.Achievements.CoilgunAnyKillTracker">
+      <count>200</count>
+    </tracker>
+    <points>30</points>
+    <tab>RF_AC_Tab</tab>
+    <!-- <order>13</order> -->
+  </AchievementsExpanded.AchievementDef>
+
+  <!-- Forge -->
+  <AchievementsExpanded.AchievementDef>
+    <defName>RF_AC_BuildForge</defName>
+    <label>Hot Topic</label>
+    <description>Build a Forge.</description>
+    <texPath>RF/AC/HotTopic</texPath>
+    <tracker Class="AchievementsExpanded.BuildingTracker">
+      <def>RF_Forge</def>
+      <count>1</count>
+    </tracker>
+    <points>10</points>
+    <tab>RF_AC_Tab</tab>
+    <!-- <order>14</order> -->
+  </AchievementsExpanded.AchievementDef>
+
+  <AchievementsExpanded.AchievementDef>
+    <defName>RF_AC_CraftBronze</defName>
+    <label>Bronze Age</label>
+    <description>Create 50 Bronze using the Forge.</description>
+    <texPath>RF/AC/Bronze</texPath>
+    <tracker Class="RimForge.Achievements.ItemCraftTrackerWithCount">
+      <def>RF_Bronze</def>
+      <count>50</count>
+    </tracker>
+    <points>5</points>
+    <tab>RF_AC_Tab</tab>
+    <!-- <order>15</order> -->
+  </AchievementsExpanded.AchievementDef>
+
+  <AchievementsExpanded.AchievementDef>
+    <defName>RF_AC_CraftAdamantium</defName>
+    <label>Very Hot Topic</label>
+    <description>Create 50 Adamantium using the Forge.</description>
+    <texPath>RF/AC/Adamantium</texPath>
+    <tracker Class="RimForge.Achievements.ItemCraftTrackerWithCount">
+      <def>RF_Adamantium</def>
+      <count>50</count>
+    </tracker>
+    <points>7</points>
+    <tab>RF_AC_Tab</tab>
+    <!-- <order>16</order> -->
+  </AchievementsExpanded.AchievementDef>
+
+  <!-- Power or Electrical -->
+  <AchievementsExpanded.AchievementDef>
+    <defName>RF_AC_BuildPower</defName>
+    <label>Immersive Engineering</label>
+    <description>Build 2 power poles.</description>
+    <texPath>RF/AC/Poles</texPath>
+    <tracker Class="AchievementsExpanded.BuildingTracker">
+      <def>RF_PowerPole</def>
+      <count>2</count>
+    </tracker>
+    <points>5</points>
+    <tab>RF_AC_Tab</tab>
+    <!-- <order>17</order> -->
+  </AchievementsExpanded.AchievementDef>
+
+  <AchievementsExpanded.AchievementDef>
+    <defName>RF_AC_CoilZap</defName>
+    <label>Non-Voluntary Electrotherapy</label>
+    <description>Zap an enemy with a Tesla Coil.</description>
+    <texPath>RF/AC/Coils</texPath>
+    <tracker Class="RimForge.Achievements.GenericEventTracker">
+      <trigger>CoilsFire</trigger>
+    </tracker>
+    <points>10</points>
+    <tab>RF_AC_Tab</tab>
+    <!-- <order>18</order> -->
+  </AchievementsExpanded.AchievementDef>
+
+  <!-- Drone strikes -->
+  <AchievementsExpanded.AchievementDef>
+    <defName>RF_AC_DroneNuke</defName>
+    <label>Seems Unfair</label>
+    <description>Drop an Antigrain Warhead from a strike drone.</description>
+    <texPath>RF/AC/Drone</texPath>
+    <tracker Class="RimForge.Achievements.GenericEventTracker">
+      <trigger>DroneAntimatter</trigger>
+    </tracker>
+    <points>15</points>
+    <tab>RF_AC_Tab</tab>
+    <!-- <order>19</order> -->
+  </AchievementsExpanded.AchievementDef>
+
+  <AchievementsExpanded.AchievementDef>
+    <defName>RF_AC_DroneNukeMany</defName>
+    <label>Sending A Message</label>
+    <description>Drop 6 Antigrain Warheads from a strike drone in a single run.</description>
+    <texPath>RF/AC/Drone2</texPath>
+    <tracker Class="RimForge.Achievements.GenericEventTracker">
+      <trigger>DroneAntimatterFull</trigger>
+    </tracker>
+    <points>75</points>
+    <tab>RF_AC_Tab</tab>
+    <!-- <order>20</order> -->
+  </AchievementsExpanded.AchievementDef>
+
+  <!-- Ritual -->
+  <AchievementsExpanded.AchievementDef>
+    <defName>RF_AC_RitualDone</defName>
+    <label>No Price Too Steep</label>
+    <description>Complete the Blessing Ritual using the Ritual Core.</description>
+    <texPath>RF/AC/Ritual</texPath>
+    <tracker Class="RimForge.Achievements.GenericEventTracker">
+      <trigger>RitualPerformed</trigger>
+    </tracker>
+    <points>12</points>
+    <tab>RF_AC_Tab</tab>
+    <!-- <order>21</order> -->
+  </AchievementsExpanded.AchievementDef>
+
+  <AchievementsExpanded.AchievementDef>
+    <defName>RF_AC_RitualRisky</defName>
+    <label>Fearless</label>
+    <description>Begin a Blessing Ritual with a >50% chance of failure.</description>
+    <texPath>RF/AC/Ritual50</texPath>
+    <tracker Class="RimForge.Achievements.GenericEventTracker">
+      <trigger>Ritual50ChanceFailure</trigger>
+    </tracker>
+    <points>40</points>
+    <tab>RF_AC_Tab</tab>
+    <!-- <order>22</order> -->
+  </AchievementsExpanded.AchievementDef>
+
+  <AchievementsExpanded.AchievementDef>
+    <defName>RF_AC_RitualFailure</defName>
+    <label>Too Close To The Sun</label>
+    <description>Perform too many rituals and incurr the wrath of Zir.</description>
+    <texPath>RF/AC/RitualHeart</texPath>
+    <tracker Class="RimForge.Achievements.GenericEventTracker">
+      <trigger>RitualFailure</trigger>
+    </tracker>
+    <points>15</points>
+    <tab>RF_AC_Tab</tab>
+    <!-- <order>23</order> -->
+  </AchievementsExpanded.AchievementDef>
+
+  <AchievementsExpanded.AchievementDef>
+    <defName>RF_AC_DualWeapons</defName>
+    <label>Deadly Precision</label>
+    <description>Craft 1 of each Stable weapon variety, minumum Masterwork level.</description>
+    <texPath>RF/AC/DualGun</texPath>
+    <tracker Class="RimForge.Achievements.ItemCraftMultiple">
+      <count>1</count>
+      <quality>Masterwork</quality>
+      <toCraft>
+        <li>RF_StableRifle</li>
+        <li>RF_StablePistol</li>
+      </toCraft>
+    </tracker>
+    <points>16</points>
+    <tab>RF_AC_Tab</tab>
+    <!-- <order>-1</order> -->
+  </AchievementsExpanded.AchievementDef>
+
+</Defs>

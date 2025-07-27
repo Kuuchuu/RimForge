@@ -12,8 +12,8 @@
 
   <ItemGroup>
     <PackageReference Include="Lib.Harmony" Version="2.3.6" ExcludeAssets="runtime" />
-    <PackageReference Include="Lib.InGameWiki" Version="15.0.1" />
-    <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.4494-beta" />
+    <PackageReference Include="Lib.InGameWiki" Version="16.0.1" />
+    <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.4528" />
     
     <!-- Ungodly hack to access rimworld private properties & methods -->
     <PackageReference Include="Krafs.Publicizer" Version="2.3.0">

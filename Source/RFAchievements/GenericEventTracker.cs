@@ -26,7 +26,13 @@ namespace RimForge.Achievements
             }
         }
 
-        public override string Key => nameof(GenericEventTracker);
+        private string _key = nameof(GenericEventTracker);
+        public override string Key
+        {
+            get => _key;
+            set => _key = value;
+        }
+
         protected override string[] DebugText => new string[] { nameof(GenericEventTracker) };
 
         public Core.AchievementEvent trigger;
@@ -37,12 +43,14 @@ namespace RimForge.Achievements
             :base(other)
         {
             this.trigger = other.trigger;
+            this._key = other._key;
         }
 
         public override void ExposeData()
         {
             base.ExposeData();
 
+            Scribe_Values.Look(ref _key, "key");
             Scribe_Values.Look(ref trigger, "trigger");
         }
 
