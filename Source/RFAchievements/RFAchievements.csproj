@@ -12,14 +12,44 @@
 		<AssemblyName>ZRFAchievements</AssemblyName>
 	</PropertyGroup>
 
+	<PropertyGroup>
+		<AchievementsExpanded_Version>3.01</AchievementsExpanded_Version>
+	</PropertyGroup>
+
+	<Target Name="DownloadAchievementsExpanded" BeforeTargets="BeforeBuild">
+		<PropertyGroup>
+			<AchievementsExpandedPath>$(MSBuildProjectDirectory)\lib\AchievementsExpanded.dll</AchievementsExpandedPath>
+			<AchievementsExpandedUrl>https://github.com/Vanilla-Expanded/VanillaAchievementsExpanded/archive/refs/tags/v$(AchievementsExpanded_Version).zip</AchievementsExpandedUrl>
+			<TempDir>$(MSBuildProjectDirectory)\obj\DownloadAchievementsExpanded</TempDir>
+			<ZipPath>$(TempDir)\AchievementsExpanded.zip</ZipPath>
+			<ExtractedDir>$(TempDir)\Extracted</ExtractedDir>
+			<ExtractedDllPath>$(ExtractedDir)\VanillaAchievementsExpanded-$(AchievementsExpanded_Version)\$(RimworldVersion)\Assemblies\AchievementsExpanded.dll</ExtractedDllPath>
+		</PropertyGroup>
+
+		<Message Text="AchievementsExpanded.dll not found. Downloading and extracting from source..." Importance="high" Condition="!Exists('$(AchievementsExpandedPath)')" />
+
+		<MakeDir Directories="$(MSBuildProjectDirectory)\lib" Condition="!Exists('$(MSBuildProjectDirectory)\lib')" />
+
+		<DownloadFile
+            SourceUrl="$(AchievementsExpandedUrl)"
+            DestinationFolder="$(TempDir)"
+            DestinationFileName="AchievementsExpanded.zip"
+            SkipUnchangedFiles="true"
+            Condition="!Exists('$(AchievementsExpandedPath)')" />
+		<Unzip SourceFiles="$(ZipPath)" DestinationFolder="$(ExtractedDir)" Condition="!Exists('$(AchievementsExpandedPath)')" />
+		<Copy SourceFiles="$(ExtractedDllPath)" DestinationFiles="$(AchievementsExpandedPath)" Condition="!Exists('$(AchievementsExpandedPath)')" />
+
+		<RemoveDir Directories="$(TempDir)" Condition="Exists('$(TempDir)')" />
+	</Target>
+
+	<Target Name="CleanAchievementsExpanded" AfterTargets="AfterClean">
+		<RemoveDir Directories="$(MSBuildProjectDirectory)\lib" Condition="Exists('$(MSBuildProjectDirectory)\lib')" />
+		<RemoveDir Directories="..\..\$(RimworldVersion)\Achievements\Assemblies" Condition="Exists('..\..\$(RimworldVersion)\Achievements\Assemblies')" />
+	</Target>
+
 	<ItemGroup>
 		<Reference Include="VanillaAchievments">
-			<HintPath Condition="Exists('C:/Program Files (x86)/Steam/steamapps/common/RimWorld/Mods/VanillaAchievementsExpanded/1.6/Assemblies/AchievementsExpanded.dll')">C:/Program Files (x86)/Steam/steamapps/common/RimWorld/Mods/VanillaAchievementsExpanded/1.6/Assemblies/AchievementsExpanded.dll</HintPath>
-			<HintPath Condition="Exists('C:/Program Files (x86)/Steam/steamapps/workshop/content/294100/2288125657/1.6/Assemblies/AchievementsExpanded.dll')">C:/Program Files (x86)/Steam/steamapps/workshop/content/294100/2288125657/1.6/Assemblies/AchievementsExpanded.dll</HintPath>
-			<HintPath Condition="Exists('C:/Program Files/Steam/steamapps/common/RimWorld/Mods/VanillaAchievementsExpanded/1.6/Assemblies/AchievementsExpanded.dll')">C:/Program Files/Steam/steamapps/common/RimWorld/Mods/VanillaAchievementsExpanded/1.6/Assemblies/AchievementsExpanded.dll</HintPath>
-			<HintPath Condition="Exists('C:/Program Files/Steam/steamapps/workshop/content/294100/2288125657/1.6/Assemblies/AchievementsExpanded.dll')">C:/Program Files/Steam/steamapps/workshop/content/294100/2288125657/1.6/Assemblies/AchievementsExpanded.dll</HintPath>
-			<HintPath Condition="Exists('$(RIMWORLD_BASE_PATH)/Mods/VanillaAchievementsExpanded/1.6/Assemblies/AchievementsExpanded.dll')">$(RIMWORLD_BASE_PATH)/Mods/VanillaAchievementsExpanded/1.6/Assemblies/AchievementsExpanded.dll</HintPath>
-			<HintPath Condition="Exists('$(RIMWORLD_BASE_PATH)/../../workshop/content/294100/2288125657/1.6/Assemblies/AchievementsExpanded.dll')">$(RIMWORLD_BASE_PATH)/../../workshop/content/294100/2288125657/1.6/Assemblies/AchievementsExpanded.dll</HintPath>
+			<HintPath>$(MSBuildProjectDirectory)\lib\AchievementsExpanded.dll</HintPath>
 			<Private>True</Private>
 		</Reference>
 		<PackageReference Include="Lib.Harmony" Version="2.3.6" ExcludeAssets="runtime" />
@@ -28,8 +58,8 @@
 			<Private>false</Private>
 			<ExcludeAssets>runtime</ExcludeAssets>
 		</ProjectReference>
-    <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.4528" />
-  </ItemGroup>    
+		<PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.4528" />
+	</ItemGroup>
   
 	<!-- Output -->
 	<PropertyGroup>
