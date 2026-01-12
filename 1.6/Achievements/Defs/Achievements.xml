@@ -10,12 +10,11 @@
   <AchievementsExpanded.AchievementDef>
     <defName>RF_AC_CraftTreaty</defName>
     <label>Vague Hope (Cold Rain)</label>
-    <description>Craft a Virtuous Treaty of normal quality or higher.</description>
+    <description>Craft a Virtuous Treaty.</description>
     <texPath>RF/AC/Treaty1</texPath>
     <tracker Class="AchievementsExpanded.ItemCraftTracker">
       <def>RF_VirtuousTreaty</def>
       <count>1</count>
-      <quality>Normal</quality>
     </tracker>
     <points>5</points>
     <tab>RF_AC_Tab</tab>
@@ -25,11 +24,10 @@
   <AchievementsExpanded.AchievementDef>
     <defName>RF_AC_TreatyFirstKill</defName>
     <label>Voice of no Return</label>
-    <description>Have a colonist kill a human using a Virtuous Treaty.</description>
+    <description>Have a colonist kill a human-like using a Virtuous Treaty.</description>
     <texPath>RF/AC/Treaty2</texPath>
-    <tracker Class="RimForge.Achievements.KillWithWeaponTracker">
+    <tracker Class="RimForge.Achievements.KillHumanLikeTracker">
       <weaponDef>RF_VirtuousTreaty</weaponDef>
-      <raceDef>Human</raceDef>
       <instigatorFactionDefs>
         <li>PlayerColony</li>
 				<li>PlayerTribe</li>
@@ -44,11 +42,10 @@
   <AchievementsExpanded.AchievementDef>
     <defName>RF_AC_TreatyManyKills</defName>
     <label>Wretched Weaponry</label>
-    <description>Kill 50 humans using a Virtuous Treaty.</description>
+    <description>Kill 50 human-likes using a Virtuous Treaty.</description>
     <texPath>RF/AC/Treaty3</texPath>
-    <tracker Class="RimForge.Achievements.KillWithWeaponTracker">
+    <tracker Class="RimForge.Achievements.KillHumanLikeTracker">
       <weaponDef>RF_VirtuousTreaty</weaponDef>
-      <raceDef>Human</raceDef>
       <instigatorFactionDefs>
         <li>PlayerColony</li>
 				<li>PlayerTribe</li>
@@ -79,11 +76,10 @@
   <AchievementsExpanded.AchievementDef>
     <defName>RF_AC_GaeFirstKill</defName>
     <label>Lethal Lancer</label>
-    <description>Have a colonist kill a human using a gáe bulg.</description>
+    <description>Have a colonist kill a human-like using a gáe bulg.</description>
     <texPath>RF/AC/Gae2</texPath>
-    <tracker Class="RimForge.Achievements.KillWithWeaponTracker">
+    <tracker Class="RimForge.Achievements.KillHumanLikeTracker">
       <weaponDef>RF_GaeBulg</weaponDef>
-      <raceDef>Human</raceDef>
       <instigatorFactionDefs>
         <li>PlayerColony</li>
 				<li>PlayerTribe</li>
@@ -98,11 +94,10 @@
   <AchievementsExpanded.AchievementDef>
     <defName>RF_AC_GaeManyKills</defName>
     <label>Pole Dancer</label>
-    <description>Kill 50 humans using a gáe bulg.</description>
+    <description>Kill 50 human-likes using a gáe bulg.</description>
     <texPath>RF/AC/Gae3</texPath>
-    <tracker Class="RimForge.Achievements.KillWithWeaponTracker">
+    <tracker Class="RimForge.Achievements.KillHumanLikeTracker">
       <weaponDef>RF_GaeBulg</weaponDef>
-      <raceDef>Human</raceDef>
       <instigatorFactionDefs>
         <li>PlayerColony</li>
 				<li>PlayerTribe</li>
@@ -216,7 +211,7 @@
     <label>Bronze Age</label>
     <description>Create 50 Bronze using the Forge.</description>
     <texPath>RF/AC/Bronze</texPath>
-    <tracker Class="RimForge.Achievements.ItemCraftTrackerWithCount">
+    <tracker Class="AchievementsExpanded.ItemCraftTracker">
       <def>RF_Bronze</def>
       <count>50</count>
     </tracker>
@@ -230,7 +225,7 @@
     <label>Very Hot Topic</label>
     <description>Create 50 Adamantium using the Forge.</description>
     <texPath>RF/AC/Adamantium</texPath>
-    <tracker Class="RimForge.Achievements.ItemCraftTrackerWithCount">
+    <tracker Class="AchievementsExpanded.ItemCraftTracker">
       <def>RF_Adamantium</def>
       <count>50</count>
     </tracker>

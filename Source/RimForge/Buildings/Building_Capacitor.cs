@@ -17,6 +17,32 @@ namespace RimForge.Buildings
 
         private MaterialPropertyBlock block;
 
+        // TODO use this more modern method to draw battery overlay, this is the correct way to do it:
+        /*
+         * 	protected override void DrawAt(Vector3 drawLoc, bool flip = false)
+			{
+				base.DrawAt(drawLoc, flip);
+				CompPowerBattery comp = base.GetComp<CompPowerBattery>();
+				GenDraw.FillableBarRequest r = new GenDraw.FillableBarRequest
+				{
+					center = drawLoc + Vector3.up * 0.1f,
+					size = Building_Battery.BarSize,
+					fillPercent = comp.StoredEnergy / comp.Props.storedEnergyMax,
+					filledMat = Building_Battery.BatteryBarFilledMat,
+					unfilledMat = Building_Battery.BatteryBarUnfilledMat,
+					margin = 0.15f
+				};
+				Rot4 rotation = base.Rotation;
+				rotation.Rotate(RotationDirection.Clockwise);
+				r.rotation = rotation;
+				GenDraw.DrawFillableBar(r);
+				if (this.ticksToExplode > 0 && base.Spawned)
+				{
+					base.Map.overlayDrawer.DrawOverlay(this, OverlayTypes.BurningWick);
+				}
+			}
+         */
+        
         public override void DynamicDrawPhaseAt(DrawPhase phase, Vector3 drawLoc, bool flip = false)
         {
             base.DynamicDrawPhaseAt(phase, drawLoc, flip);

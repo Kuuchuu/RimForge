@@ -2,10 +2,12 @@
 using RimForge;
 using RimForge.Achievements;
 using System;
+using System.Linq;
 using Verse;
 
 namespace Rimforge.Achievements
 {
+    [HotSwapAll]
     public class ACore : Mod
     {
         public ACore(ModContentPack content) : base(content)
@@ -26,7 +28,7 @@ namespace Rimforge.Achievements
             {
                 try
                 {
-                    if ((card.tracker as CoilgunKillTracker).Trigger(penDepth, pawn, shellDef))
+                    if (((CoilgunKillTracker)card.tracker).Trigger(penDepth, pawn, shellDef))
                     {
                         card.UnlockCard();
                     }
@@ -41,11 +43,19 @@ namespace Rimforge.Achievements
 
         private static void OnCoilgunPostFire(int pawnKills, float totalDamage, CoilgunShellDef shellDef)
         {
-            foreach (var card in AchievementPointManager.GetCards<CoilgunPostFireTracker>())
+            var cards = AchievementPointManager.GetCards<CoilgunPostFireTracker>();
+            if (cards.Count == 0)
+            {
+                Core.Error("No CoilgunPostFireTracker cards found during OnCoilgunPostFire event.");
+                return;
+            }
+            Core.Log($"Postfire: {pawnKills} kills, {totalDamage} damage with {shellDef?.defName ?? "null shell"} - checking {cards.Count} cards ({string.Join(", ", cards.Select(c => c.def.defName))})");
+            
+            foreach (var card in cards)
             {
                 try
                 {
-                    if ((card.tracker as CoilgunPostFireTracker).Trigger(pawnKills, totalDamage, shellDef))
+                    if (((CoilgunPostFireTracker)card.tracker).Trigger(pawnKills, totalDamage, shellDef))
                     {
                         card.UnlockCard();
                     }
@@ -64,7 +74,7 @@ namespace Rimforge.Achievements
             {
                 try
                 {
-                    if ((card.tracker as CoilgunExplosiveTracker).Trigger(e, count))
+                    if (((CoilgunExplosiveTracker)card.tracker).Trigger(e, count))
                     {
                         card.UnlockCard();
                     }

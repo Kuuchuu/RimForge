@@ -3,13 +3,14 @@ using Verse;
 
 namespace RimForge.Achievements
 {
-    public class GenericEventTracker : Tracker<Core.AchievementEvent>
+    public sealed class GenericEventTracker : Tracker<Core.AchievementEvent>
     {
         public static void Fire(Core.AchievementEvent trigger)
         {
             if (trigger == Core.AchievementEvent.None)
                 return;
 
+            Core.Log($"Generic RF Achievement Event Fired: {trigger}");
             var cards = AchievementPointManager.GetCards<GenericEventTracker>();
             if (cards == null)
                 return;
@@ -26,14 +27,13 @@ namespace RimForge.Achievements
             }
         }
 
-        private string _key = nameof(GenericEventTracker);
         public override string Key
         {
-            get => _key;
-            set => _key = value;
+            get => nameof(GenericEventTracker);
+            set { }
         }
 
-        protected override string[] DebugText => new string[] { nameof(GenericEventTracker) };
+        protected override string[] DebugText => [nameof(GenericEventTracker)];
 
         public Core.AchievementEvent trigger;
 
@@ -43,14 +43,12 @@ namespace RimForge.Achievements
             :base(other)
         {
             this.trigger = other.trigger;
-            this._key = other._key;
         }
 
         public override void ExposeData()
         {
             base.ExposeData();
 
-            Scribe_Values.Look(ref _key, "key");
             Scribe_Values.Look(ref trigger, "trigger");
         }
 

@@ -3,16 +3,15 @@ using Verse;
 
 namespace RimForge.Achievements
 {
-    public class CoilgunExplosiveTracker : Tracker2<Explosion, int>
+    public sealed class CoilgunExplosiveTracker : Tracker2<Explosion, int>
     {
-        private string _key = nameof(CoilgunExplosiveTracker);
         public override string Key
         {
-            get => _key;
-            set => _key = value;
+            get => nameof(CoilgunExplosiveTracker);
+            set { }
         }
 
-        protected override string[] DebugText => new string[] {nameof(CoilgunExplosiveTracker) };
+        protected override string[] DebugText => [nameof(CoilgunExplosiveTracker)];
 
         public int minKills;
 
@@ -22,19 +21,18 @@ namespace RimForge.Achievements
             :base(other)
         {
             this.minKills = other.minKills;
-            this._key = other._key;
         }
 
         public override void ExposeData()
         {
             base.ExposeData();
 
-            Scribe_Values.Look(ref _key, "key");
             Scribe_Values.Look(ref minKills, "minKills");
         }
 
         public override bool Trigger(Explosion e, int kills)
         {
+            Core.Log($"Explosion killed {kills} targets. Minimum required: {minKills}");
             return e != null && kills >= minKills;
         }
     }

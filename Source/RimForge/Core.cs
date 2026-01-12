@@ -8,6 +8,10 @@ using Verse;
 
 namespace RimForge
 {
+    [AttributeUsage(AttributeTargets.Class)]
+    public sealed class HotSwapAllAttribute : Attribute;
+    
+    [HotSwapAll]
     public class Core : Mod
     {
         public static Action<Pawn, CoilgunShellDef, int> CoilgunHitPawn;

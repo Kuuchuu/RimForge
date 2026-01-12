@@ -631,6 +631,7 @@ namespace RimForge.Buildings
             Vector3 moteEnd = lastCell.Value.ToVector3ShiftedWithAltitude(AltitudeLayer.MoteOverhead);
             // Legacy 1.2 (although I don't think it ever worked even in 1.2)
             //MoteMaker.MakeConnectingLine(moteStart, moteEnd, ThingDefOf.Mote_FireGlow, map, 1);
+            FleckMaker.ConnectingLine(moteStart, moteEnd, FleckDefOf.FireGlow, map, 1f);
             DoMuzzleFlash();
 
             Current.CameraDriver.shaker.DoShake(5);
